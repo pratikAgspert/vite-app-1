@@ -13,7 +13,7 @@ const CubeWithLineTexture = () => {
       {/* Cube Mesh */}
       <mesh>
         <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="blue" />
+        <meshStandardMaterial color="yellow" />
       </mesh>
 
       {/* Orbit Controls */}
