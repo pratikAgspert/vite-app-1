@@ -2,7 +2,7 @@
 
 name = "vite-store-ext"
 client_id = "b592f6b30431fac8d607f05d8c76bb1c"
-application_url = "https://reserved-garcia-bands-provide.trycloudflare.com"
+application_url = "https://subsequent-antonio-discipline-contests.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -11,9 +11,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://reserved-garcia-bands-provide.trycloudflare.com/auth/callback",
-  "https://reserved-garcia-bands-provide.trycloudflare.com/auth/shopify/callback",
-  "https://reserved-garcia-bands-provide.trycloudflare.com/api/auth/callback"
+  "https://subsequent-antonio-discipline-contests.trycloudflare.com/auth/callback",
+  "https://subsequent-antonio-discipline-contests.trycloudflare.com/auth/shopify/callback",
+  "https://subsequent-antonio-discipline-contests.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]

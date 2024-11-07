@@ -18,6 +18,8 @@
     "cleanup": "rimraf --glob extensions/*/assets/*.{json,geetkeep}"
   },
   "dependencies": {
+    "@react-three/drei": "^9.115.0",
+    "@react-three/fiber": "^8.17.10",
     "@shopify/app": "^3.48.0",
     "@shopify/cli": "^3.48.0",
     "@vitejs/plugin-react": "^4.0.3",
@@ -26,7 +28,9 @@
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sort-by": "^1.2.0"
+    "react-three-fiber": "^6.0.13",
+    "sort-by": "^1.2.0",
+    "three": "^0.170.0"
   },
   "author": "iskurbanov",
   "private": true,
