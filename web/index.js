@@ -4,6 +4,7 @@ import { readFileSync } from "fs";
 import express from "express";
 import serveStatic from "serve-static";
 import crypto from "crypto";
+import axios from "axios";
 
 import shopify from "./shopify.js";
 import productCreator from "./product-creator.js";
@@ -69,24 +70,29 @@ app.get("/api/knox-token", async (_req, res) => {
     last_name: "a",
   };
   console.log("body", body, shopData.body?.data?.shop);
-  const response = await fetch(
-    "https://g9bvvvyptqo7uxa0.agspert-ai.com/shopify/auth/login/",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
+  const response = await axios.post("https://g9bvvvyptqo7uxa0.agspert-ai.com/shopify/auth/login/", JSON.stringify(body), {
+    headers: {
+      "Content-Type": "application/json",
     }
-  );
+  })
+  // const response = await fetch(
+  //   "https://g9bvvvyptqo7uxa0.agspert-ai.com/shopify/auth/login/",
+  //   {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(body),
+  //   }
+  // );
 
-  if (!response.ok) {
-    return res
-      .status(response.status)
-      .send({ error: "Failed to fetch Knox token" });
-  }
+  // if (!res.ok) {
+  //   return res
+  //     .status(response.status)
+  //     .send({ error: "Failed to fetch Knox token" });
+  // }
 
-  const { token } = await response.json();
+  const { token } = await response.data;
   res.status(200).send({ token, shop: res.locals.shopify.session.shop });
 });
 
