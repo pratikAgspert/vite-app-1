@@ -10,12 +10,12 @@ const content = [
     data: [
       {
         id: "KQ7WnYGbd3BpwnHFTheLY",
-        type: "carousel_2d_image",
+        type: "carousel_360_image",
         image_url:
-          "https://agspert-weatherstation1.s3.amazonaws.com/media/1079/vbvlhqaqrztddikzdiyudtaiijogss",
+          "https://agspert-weatherstation1.s3.amazonaws.com/media/1079/Field_of_Rape_in_Full_Flower_%E2%80%93_360%C2%B0_Drone_Panorama.jpg",
       },
     ],
-    type: "carousel_2d_image",
+    type: "carousel_360_image",
     header: "",
     isActive: true,
   },
@@ -175,7 +175,7 @@ const Story = () => {
           position="relative"
         >
           <CarouselComponent
-            productData={content || {}}
+            productData={content || []}
             defaultSheetData={sheetData || []}
           />
         </Stack>
