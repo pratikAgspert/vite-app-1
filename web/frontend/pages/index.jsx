@@ -2,92 +2,61 @@ import {
   Card,
   Page,
   Layout,
-  TextContainer,
-  Image,
-  Stack,
-  Link,
   Text,
+  Spinner,
+  Button,
 } from "@shopify/polaris";
-import { TitleBar } from "@shopify/app-bridge-react";
-import { useTranslation, Trans } from "react-i18next";
-
-import { trophyImage } from "../assets";
-
-import { ProductsCard } from "../components";
+import { useContext } from "react";
+import { AuthContext } from "../services/context";
+import HomePage2 from "../components/HomePage2/HomePage2";
 
 export default function HomePage() {
-  const { t } = useTranslation();
-  return (
-    <Page narrowWidth>
-      <TitleBar title={t("HomePage.title")} primaryAction={null} />
-      <Layout>
-        <Layout.Section>
-          <Card sectioned>
-            <Stack
-              wrap={false}
-              spacing="extraTight"
-              distribution="trailing"
-              alignment="center"
-            >
-              <Stack.Item fill>
-                <TextContainer spacing="loose">
-                  <Text as="h2" variant="headingMd">
-                    {t("HomePage.heading")}
-                  </Text>
-                  <p>
-                    <Trans
-                      i18nKey="HomePage.yourAppIsReadyToExplore"
-                      components={{
-                        PolarisLink: (
-                          <Link url="https://polaris.shopify.com/" external />
-                        ),
-                        AdminApiLink: (
-                          <Link
-                            url="https://shopify.dev/api/admin-graphql"
-                            external
-                          />
-                        ),
-                        AppBridgeLink: (
-                          <Link
-                            url="https://shopify.dev/apps/tools/app-bridge"
-                            external
-                          />
-                        ),
-                      }}
-                    />
-                  </p>
-                  <p>{t("HomePage.startPopulatingYourApp")}</p>
-                  <p>
-                    <Trans
-                      i18nKey="HomePage.learnMore"
-                      components={{
-                        ShopifyTutorialLink: (
-                          <Link
-                            url="https://shopify.dev/apps/getting-started/add-functionality"
-                            external
-                          />
-                        ),
-                      }}
-                    />
-                  </p>
-                </TextContainer>
-              </Stack.Item>
-              <Stack.Item>
-                <div style={{ padding: "0 20px" }}>
-                  <Image
-                    source={trophyImage}
-                    alt={t("HomePage.trophyAltText")}
-                    width={120}
-                  />
+  const { isLoading, isAuthenticated, refetchToken } = useContext(AuthContext);
+
+  if (isLoading) {
+    return (
+      // <Page>
+      //   <Layout>
+      //     <Layout.Section>
+      //       <Card>
+      //         <div style={{ textAlign: 'center', padding: '2rem' }}>
+      //           <Spinner accessibilityLabel="Loading" size="large" />
+      //           <div style={{ marginTop: '1rem' }}>
+      //             <Text variant="bodyMd" as="p">
+      //               Authenticating...
+      //             </Text>
+      //           </div>
+      //         </div>
+      //       </Card>
+      //     </Layout.Section>
+      //   </Layout>
+      // </Page>
+      <></>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <Page>
+        <Layout>
+          <Layout.Section>
+            <Card>
+              <div style={{ textAlign: 'center', padding: '2rem' }}>
+                <Text variant="headingMd" as="h2">
+                  Authentication Failed
+                </Text>
+                <div style={{ marginTop: '1rem' }}>
+                  <Button onClick={() => refetchToken()}>
+                    Retry Authentication
+                  </Button>
                 </div>
-              </Stack.Item>
-            </Stack>
-          </Card>
-        </Layout.Section>
-        <Layout.Section>
-          <ProductsCard />
-        </Layout.Section>
-      </Layout>
-    </Page>
-  );
+              </div>
+            </Card>
+          </Layout.Section>
+        </Layout>
+      </Page>
+    );
+  }
+
+  return <HomePage2 />;
 }

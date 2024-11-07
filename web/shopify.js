@@ -31,6 +31,7 @@ const shopify = shopifyApp({
   },
   // This should be replaced with your preferred storage strategy
   sessionStorage: new SQLiteSessionStorage(DB_PATH),
+  useOnlineTokens: false
 });
 
 export default shopify;
