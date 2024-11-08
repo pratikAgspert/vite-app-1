@@ -1,9 +1,14 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-name = "vite-store-ext"
 client_id = "b592f6b30431fac8d607f05d8c76bb1c"
-application_url = "https://complicated-smile-detect-willow.trycloudflare.com"
+name = "vite-store-ext"
+handle = "vite-store-ext"
+application_url = "https://tired-marketing-effects-firewall.trycloudflare.com"
 embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "hellostorexyz.myshopify.com"
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
@@ -11,9 +16,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://complicated-smile-detect-willow.trycloudflare.com/auth/callback",
-  "https://complicated-smile-detect-willow.trycloudflare.com/auth/shopify/callback",
-  "https://complicated-smile-detect-willow.trycloudflare.com/api/auth/callback"
+  "https://tired-marketing-effects-firewall.trycloudflare.com/auth/callback",
+  "https://tired-marketing-effects-firewall.trycloudflare.com/auth/shopify/callback",
+  "https://tired-marketing-effects-firewall.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
@@ -21,7 +26,3 @@ api_version = "2024-10"
 
 [pos]
 embedded = false
-
-[build]
-automatically_update_urls_on_dev = true
-dev_store_url = "hellostorexyz.myshopify.com"
