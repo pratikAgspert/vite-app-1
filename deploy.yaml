@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: shopify-secrets
+type: Opaque
+stringData:
+  SHOPIFY_API_KEY: 4fe1dd2305b7f2c7c4283ed2ecc499fa
+  SHOPIFY_API_SECRET: bb7beac7a9ea787b6c57c54b4cecbd43
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopify-app
+  labels:
+    app: shopify-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shopify-app
+  template:
+    metadata:
+      labels:
+        app: shopify-app
+    spec:
+      imagePullSecrets:
+        - name: regcred2
+      containers:
+      - name: shopify-app
+        image: registry.myella.app/kodex:2  # Replace with your image name
+        ports:
+        - containerPort: 8081
+        env:
+        - name: SHOPIFY_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: shopify-secrets
+              key: SHOPIFY_API_KEY
+        - name: SHOPIFY_API_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: shopify-secrets
+              key: SHOPIFY_API_SECRET
+        - name: SCOPES
+          value: "read_products,write_products"
+        - name: HOST
+          value: "https://kodex.ruraldevs.dev"  # Replace with your actual domain
+        - name: PORT
+          value: "8081"
+        - name: VITE_SHOPIFY_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: shopify-secrets
+              key: SHOPIFY_API_KEY

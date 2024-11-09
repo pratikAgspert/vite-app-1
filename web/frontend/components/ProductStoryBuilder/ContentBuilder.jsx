@@ -45,6 +45,7 @@ import {
 } from "../../apiHooks/useProductStory";
 import { useDeleteUnusedMediaUrls } from "../../apiHooks/useMediaUpload";
 import DeleteConfirmationAlertDialog from "../Generic/DeleteConfirmationAlertDialog";
+import { FormInput } from "../Generic/ControlledFormControls";
 import { useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import StoryFormSelect from "../Generic/StoryFormSelect";
@@ -83,7 +84,6 @@ import SeoEditor from "./SeoEditor";
 import GlobalStyleEditor from "./GlobalStyleEditor";
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
-import { FormInput } from "../generic/ControlledFormControls";
 
 const ContentBuilder = ({
   productId,

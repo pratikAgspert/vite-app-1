@@ -11,7 +11,7 @@ import React, { useCallback, useEffect, useMemo } from 'react';
 import {
   DatePickerFormControl,
   FormSelect,
-} from '../../components/generic/ControlledFormControls';
+} from '../../components/Generic/ControlledFormControls';
 import { useForm } from 'react-hook-form';
 import PostSkeleton from '../../components/skeletons/PostSkeleton';
 import { Bar, Pie } from 'react-chartjs-2';

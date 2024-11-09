@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kodex-service
+spec:
+  selector:
+    app: shopify-app
+  ports:
+    - protocol: TCP
+      port: 9030
+      targetPort: 9030
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kodex-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "4000m"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  tls:
+  - hosts:
+    - kodex.ruraldevs.dev
+    secretName: kodex-production-tls
+  rules:
+  - host: kodex.ruraldevs.dev
+    http:
+      paths:
+        - path:  /
+          pathType: Prefix
+          backend:
+            service:
+              name: kodex-service
+              port:
+                number: 9030
+  ingressClassName: nginx

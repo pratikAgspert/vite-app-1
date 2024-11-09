@@ -13,7 +13,7 @@ import {
   Tooltip as ChakraTooltip,
 } from "@chakra-ui/react";
 
-import NotFoundMessage from "../../components/generic/NotFoundMessage";
+import NotFoundMessage from "../../components/Generic/NotFoundMessage";
 import { FillSkeleton } from "../../components/skeletons/PostSkeleton";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import { IoMdRadioButtonOn } from "react-icons/io";
