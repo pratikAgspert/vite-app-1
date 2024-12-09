@@ -1105,12 +1105,12 @@
   dependencies:
     tslib "2"
 
-"@formatjs/intl-localematcher@^0.4.0":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-localematcher/-/intl-localematcher-0.4.2.tgz#7e6e596dbaf2f0c5a7c22da5a01d5c55f4c37e9a"
-  integrity sha512-BGdtJFmaNJy5An/Zan4OId/yR9Ih1OojFjcduX/xOvq798OgWSyDtd6Qd5jqJXwJs1ipe4Fxu9+cshic5Ox2tA==
+"@formatjs/intl-localematcher@^0.5.9":
+  version "0.5.9"
+  resolved "https://registry.yarnpkg.com/@formatjs/intl-localematcher/-/intl-localematcher-0.5.9.tgz#43c6ee22be85b83340bcb09bdfed53657a2720db"
+  integrity sha512-8zkGu/sv5euxbjfZ/xmklqLyDGQSxsLqg8XOq88JW3cmJtzhCP8EtSJXlaKZnVO4beEaoiT9wj4eIoCQ9smwxA==
   dependencies:
-    tslib "^2.4.0"
+    tslib "2"
 
 "@formatjs/intl-pluralrules@^5.2.4":
   version "5.3.4"
